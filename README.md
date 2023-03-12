@@ -17,3 +17,24 @@ For Frontend Start-Up we will want:
 2. npm install sass
 
 
+
+-----------------------------------------------
+
+Frontend Start-Up (By Sophie),
+this is what I have installed:
+
+
+1. npm install sass 
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+
