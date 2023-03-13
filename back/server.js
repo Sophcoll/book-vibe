@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 
 
-// Routes
+// Routes, change this if needed for different page route (ie /book or /about page)
 app.use('/', bookRoutes)
 
 
@@ -25,7 +25,7 @@ app.use('/', bookRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT, () => {
-        console.log('listening on port:     ' + process.env.PORT)
+        console.log('connected to mongodb and listening on port:     ' + process.env.PORT)
     })
     })
     .catch((error) => {
