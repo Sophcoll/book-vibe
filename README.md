@@ -25,6 +25,9 @@ this is what I have installed:
 
 
 1. npm install sass 
+2. npm install react-router-dom
+3. npm install chroma-js
+
 
 
 
