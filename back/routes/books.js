@@ -1,4 +1,6 @@
 const express = require('express')
+
+// importing functions from controller folder to keep routes tidy
 const {
     createBook,
     getBooks,
