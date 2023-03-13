@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+
+div.landing-page {
+    background-color: $main-blue;
+    height: 100vh;
+    @include flexCenter(column);
+    padding: 7.5rem 15rem;
+
+    &__header {
+        text-align: center;
+
+        p {
+            font-size: 12.7rem;
+            line-height: 14rem;
+            color: white;
+            font-weight: 800;
+        }
+    }
+}

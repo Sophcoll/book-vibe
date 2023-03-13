@@ -1,0 +1,40 @@
+@use "./Variables.scss" as *;
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap'); 
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Red Hat Display", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 6.4rem;
+    line-height: 8.5rem;
+    font-weight: 800;
+}
+
+h1.display {
+    font-size: 9.6rem;
+    line-height: 12.7rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: $white;
+}
+
+h2.display {
+    font-size: 3.6rem;
+    line-height: 4.8rem;
+    font-weight: 600;
+    color: $white;
+}
+
+
+
+p {
+    font-size: 2rem;
+    line-height: 2.6rem;
+}
+
+
