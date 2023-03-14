@@ -3,7 +3,7 @@
 div.landing-page {
     background-color: $main-blue;
     height: 100vh;
-    @include flexCenter(column);
+    @include flex(center, center, column);
     padding: 7.5rem 15rem;
 
     &__header {
@@ -12,7 +12,7 @@ div.landing-page {
         p {
             font-size: 12.7rem;
             line-height: 14rem;
-            color: white;
+            color:$white;
             font-weight: 800;
         }
     }

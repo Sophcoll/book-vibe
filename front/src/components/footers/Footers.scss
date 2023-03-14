@@ -1,0 +1,16 @@
+@use "../../abstracts/" as *;
+
+.footer {
+    background-color: $light;
+    width: 100vw;
+    height: 20vh;
+    padding: 4rem 6rem;
+
+    &--main {
+        @include flex(center, space-between, row);
+    }
+    
+    &__logo {
+        color: $main-blue;
+    }
+}
