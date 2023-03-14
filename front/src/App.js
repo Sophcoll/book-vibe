@@ -1,5 +1,4 @@
 
-
 // COMPONENTS
 // import Landing from "./pages/Landing";
 import AddBook from "./pages/AddBook";
@@ -16,8 +15,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      {/* <AddBook /> */}
-      < Books />
+      < AddBook />
+      {/* < Books /> */}
 
 
       {/* <BrowserRouter>
