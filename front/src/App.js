@@ -1,18 +1,31 @@
+
+
+// COMPONENTS
+// import Landing from "./pages/Landing";
+import AddBook from "./pages/AddBook";
+import Books from "./pages/Books";
+import NotFound from "./pages/NotFound";
+
+=======
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// components
-import Landing from "./pages/Landing";
-import NotFound from "./pages/NotFound";
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <AddBook /> */}
+      < Books />
+
+
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="*" element={ <NotFound /> } />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }

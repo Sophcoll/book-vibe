@@ -1,0 +1,48 @@
+@use "../abstracts/" as *;
+
+.add-book {
+  background-color: $main-blue;
+  min-height: 80vh;
+  min-width: 100vw;
+  padding: 6rem;
+  @include gridColumn12(0);
+
+  &__left-col {
+    grid-column: span 5;
+    height: 100%;
+    @include flex(flex-start, space-between, column);
+
+    .header {
+      color: $light;
+    }
+  }
+
+  &__right-col {
+    grid-column: span 7;
+
+    &.form {
+      @include flex(flex-start, flex-start, column);
+      gap: 2rem;
+
+      input,
+      textarea {
+        width: 100%;
+      }
+
+      input {
+        height: 2rem;
+      }
+
+      button {
+        margin-top: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.add-book.dark {
+  .header {
+    color: black;
+  }
+}
