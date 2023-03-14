@@ -9,6 +9,7 @@ import chroma from "chroma-js";
 
 //STYLE SHEETS
 import "./AddBook.scss";
+import BookForm from "../components/form/BookForm";
 
 const AddBook = () => {
   //-------------------------------------------------------------------------------------------------------------------------------
@@ -27,6 +28,7 @@ const AddBook = () => {
 
   // function is fired when user clicks on the color picker and changes the color;
   const handleColor = (e) => {
+
     setUserBackgroundColor(e.target.value);
 
     // transforms the hex value into an rgb value so that we can execute the luminance() function below;
@@ -52,14 +54,8 @@ const AddBook = () => {
 
         {/* <-- ALLANA PUT FORM HERE (REPLACE THIS ONE) --> */}
         <div className="add-book__right-col">
-          <form action="" className="add-book__right-col form">
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <SubmitBtn brightness={brightness} />
-          </form>
-        </div>
+         <BookForm userBackgroundColor={userBackgroundColor}></BookForm>
+        </div>  
       </div>
 
       {/* <-- FORM SECTION ENDS --> */}

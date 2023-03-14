@@ -1,13 +1,12 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // COMPONENTS
 // import Landing from "./pages/Landing";
-import AddBook from "./pages/AddBook";
-import Books from "./pages/Books";
+// import AddBook from "./pages/AddBook";
+// import Books from "./pages/Books";
 import NotFound from "./pages/NotFound";
-
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BookList from "./components/BookList";
+// import BookForm from "./components/form/BookForm";
 
 
 
@@ -17,15 +16,17 @@ function App() {
   return (
     <div className="App">
       {/* <AddBook /> */}
-      < Books />
+      {/* <BookList/> */}
+      {/* < Books /> */}
+      {/* <BookForm/> */}
 
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<BookList />} />
           <Route path="*" element={ <NotFound /> } />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }

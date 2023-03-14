@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 const BookList = () => {
      const [books, setBooks] = useState(null)
 
@@ -9,19 +10,21 @@ const BookList = () => {
             const json = await response.json()
 
             if (response.ok) {
-              setBooks(json)
+                setBooks(json)
+               console.log(books) 
             }
         } 
 
         fetchBooks()
-    }, [])
+    },  [])
    
 
     return (
-        <div className="book-list">
-            <div className="book-list__books">
+        <div>
+            <div >
+                <h2>Books Will Go Here:</h2>
                 {books && books.map((book) => (
-                    <p key={book._id}>{book.title }</p>
+                    <h1 key={book._id}>{book.title }</h1>
                 ))}
             </div>
         </div>
