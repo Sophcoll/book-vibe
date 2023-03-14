@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import './BookForm.scss'
 // import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
@@ -6,9 +7,6 @@ const BookForm = ({ userBackgroundColor }) => {
     // const { dispatch } = useWorkoutsContext()
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
-    
-    // const [rating, setRating] = useState('')
- 
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
@@ -44,12 +42,11 @@ const BookForm = ({ userBackgroundColor }) => {
             setTitle('')
             setAuthor('')
             setDescription('')
-            // setRating('')
-            // setColor(userBackgroundColor)
             setEmptyFields([])
             setError(null)
             //  dispatch({type:'CREATE_WORKOUT', payload: json})
             // console.log("new workout added")
+
         }
      }
     
@@ -71,21 +68,15 @@ const BookForm = ({ userBackgroundColor }) => {
                 type="text"
                  onChange={(event) => setAuthor(event.target.value)}
                 value={author}
-                className={emptyFields.includes('title') ? 'error' : ''}/>
 
-            {/* <label> Rating </label>
-            <input
-                type="text"
-                 onChange={(event) => setRating(event.target.value)}
-                value={rating}
-                className={emptyFields.includes('title') ? 'error' : ''}/> */}
+                className={emptyFields.includes('author') ? 'error' : ''}/>
 
             <label> Description </label>
             <input
                 type="text"
                  onChange={(event) => setDescription(event.target.value)}
                 value={description}
-                className={emptyFields.includes('title') ? 'error' : ''}/>
+                className={emptyFields.includes('description') ? 'error' : ''}/>
 
             <button>Add</button>
              {error && <div className="error">{ error }</div> }

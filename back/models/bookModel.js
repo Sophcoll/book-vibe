@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-// rating: {
-//     type: Number,
-// },
-
 
 const bookSchema = new Schema({
     title: {
@@ -16,13 +12,14 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    color: {
+      color: {
         type: String,
     },
        description: {
         type: String,
         required: true
-    },
+}
 }, { timestamps: true })
 
 module.exports = mongoose.model('Book', bookSchema)
+
