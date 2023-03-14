@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+// rating: {
+//     type: Number,
+// },
+
+
 const bookSchema = new Schema({
     title: {
         type: String,
@@ -11,11 +16,12 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-      rating: {
-        type: Number,
+    color: {
+        type: String,
     },
        description: {
         type: String,
+        required: true
     },
 }, { timestamps: true })
 

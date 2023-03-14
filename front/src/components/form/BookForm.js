@@ -1,21 +1,30 @@
 import { useState } from 'react'
-import './bookForm.scss'
+import './BookForm.scss'
 // import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
-const BookForm = () => { 
+const BookForm = ({ userBackgroundColor }) => { 
     // const { dispatch } = useWorkoutsContext()
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
-    const [rating, setRating] = useState('')
+    
+    // const [rating, setRating] = useState('')
+ 
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
+    const color = userBackgroundColor;
+
     const handleSubmit = async (event) => {
         event.preventDefault()
-
+        
         console.log("submit")
-        const book = { title, author, rating, description }
+        // console.log(color);
+
+        // const book = { title, author, rating, description }
+        const book = { title, author, color, description }
+
+        console.log(book);
         
         const response = await fetch('/', {
             method: 'POST',
@@ -35,8 +44,9 @@ const BookForm = () => {
             setTitle('')
             setAuthor('')
             setDescription('')
-            setRating('')
-             setEmptyFields([])
+            // setRating('')
+            // setColor(userBackgroundColor)
+            setEmptyFields([])
             setError(null)
             //  dispatch({type:'CREATE_WORKOUT', payload: json})
             // console.log("new workout added")
@@ -63,12 +73,12 @@ const BookForm = () => {
                 value={author}
                 className={emptyFields.includes('title') ? 'error' : ''}/>
 
-            <label> Rating </label>
+            {/* <label> Rating </label>
             <input
                 type="text"
                  onChange={(event) => setRating(event.target.value)}
                 value={rating}
-                className={emptyFields.includes('title') ? 'error' : ''}/>
+                className={emptyFields.includes('title') ? 'error' : ''}/> */}
 
             <label> Description </label>
             <input

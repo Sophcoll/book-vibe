@@ -9,6 +9,7 @@ import chroma from "chroma-js";
 
 //STYLE SHEETS
 import "./AddBook.scss";
+import BookForm from "../components/form/BookForm";
 
 const AddBook = () => {
   //-------------------------------------------------------------------------------------------------------------------------------
@@ -52,13 +53,15 @@ const AddBook = () => {
 
         {/* <-- ALLANA PUT FORM HERE (REPLACE THIS ONE) --> */}
         <div className="add-book__right-col">
-          <form action="" className="add-book__right-col form">
+
+          < BookForm userBackgroundColor={userBackgroundColor} />
+          {/* <form action="" className="add-book__right-col form">
             <input type="text" />
             <input type="text" />
             <input type="text" />
             <textarea name="" id="" cols="30" rows="10"></textarea>
             <SubmitBtn brightness={brightness} />
-          </form>
+          </form> */}
         </div>
       </div>
 
@@ -66,8 +69,6 @@ const AddBook = () => {
 
       <AddBookFooter
         handleColor={handleColor}
-        userBackgroundColor={userBackgroundColor}
-        brightness={brightness}
       />
     </div>
   );
