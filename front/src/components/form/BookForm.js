@@ -1,26 +1,29 @@
 import { useState } from 'react'
-import "./BookForm.scss"
 
+import './BookForm.scss'
 // import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
-const BookForm = ({userBackgroundColor}) => { 
+const BookForm = ({ userBackgroundColor }) => { 
     // const { dispatch } = useWorkoutsContext()
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
-    const [color, setColor] = useState(userBackgroundColor)
-    // const [rating, setRating] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
+    const color = userBackgroundColor;
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(userBackgroundColor)
+        
         console.log("submit")
+        // console.log(color);
+
         // const book = { title, author, rating, description }
         const book = { title, author, color, description }
-        console.log(book)
+
+        console.log(book);
+        
         const response = await fetch('/', {
             method: 'POST',
             body: JSON.stringify(book),
@@ -39,12 +42,11 @@ const BookForm = ({userBackgroundColor}) => {
             setTitle('')
             setAuthor('')
             setDescription('')
-            // setRating('')
-            setColor()
-             setEmptyFields([])
+            setEmptyFields([])
             setError(null)
-            //  dispatch({type:'CREATE_BOOK', payload: json})
-            console.log("new book added")
+            //  dispatch({type:'CREATE_WORKOUT', payload: json})
+            // console.log("new workout added")
+
         }
      }
     
@@ -66,14 +68,8 @@ const BookForm = ({userBackgroundColor}) => {
                 type="text"
                  onChange={(event) => setAuthor(event.target.value)}
                 value={author}
-                className={emptyFields.includes('author') ? 'error' : ''}/>
 
-            {/* <label> Rating </label>
-            <input
-                type="text"
-                 onChange={(event) => setRating(event.target.value)}
-                value={rating}
-                className={emptyFields.includes('rating') ? 'error' : ''}/> */}
+                className={emptyFields.includes('author') ? 'error' : ''}/>
 
             <label> Description </label>
             <input

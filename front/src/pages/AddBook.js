@@ -52,18 +52,18 @@ const AddBook = () => {
         </div>
 
 
-        {/* <-- ALLANA PUT FORM HERE (REPLACE THIS ONE) --> */}
+        
         <div className="add-book__right-col">
          <BookForm userBackgroundColor={userBackgroundColor}></BookForm>
         </div>  
+       
+
       </div>
 
-      {/* <-- FORM SECTION ENDS --> */}
+     
 
       <AddBookFooter
         handleColor={handleColor}
-        userBackgroundColor={userBackgroundColor}
-        brightness={brightness}
       />
     </div>
   );
