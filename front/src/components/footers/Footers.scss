@@ -1,16 +1,38 @@
 @use "../../abstracts/" as *;
 
 .footer {
-    background-color: $light;
-    width: 100vw;
-    height: 20vh;
-    padding: 4rem 6rem;
+  background-color: $light;
+  width: 100vw;
+  height: 20vh;
+  padding: 4rem 6rem;
 
-    &--main {
-        @include flex(center, space-between, row);
+  &--main {
+    @include flex(center, space-between, row);
+  }
+
+  &__logo {
+    color: $main-blue;
+  }
+
+  .color-picker {
+    @include flex(center, flex-start, row);
+    gap: 1.6rem;
+
+    &__text {
+      color: $main-blue;
+
+      h4 {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        line-height: 1.9rem;
+      }
     }
-    
-    &__logo {
-        color: $main-blue;
-    }
+  }
 }

@@ -1,9 +1,13 @@
-import "./AddBookBtn.scss";
+// COMPONENT
 import addImgBlue from "../../assets/add-book-blue.svg";
+
+// STYLE SHEET
+import "./Buttons.scss";
+
 
 const AddBookBtn = () => {
     return ( 
-        <button className="add-book-btn">
+        <button className="button--add-book">
             <img src={addImgBlue} alt="Plus icon to add a book" />
         </button>
      );

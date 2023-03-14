@@ -1,0 +1,30 @@
+@use "../abstracts/" as *;
+
+.books {
+  background-color: $main-blue;
+  min-height: 80vh;
+  max-height: 80vh;
+  min-width: 100vw;
+  // padding: 6rem;
+  overflow-y: hidden;
+  // overflow-x: scroll;
+
+  &__list {
+    background-color: pink;
+    min-height: 100%;
+    width: 15rem;
+    border-right: solid $light 0.1rem;
+
+    &.list-item {
+      height: 100%;
+
+      h2 {
+        // transform: rotate(90deg);
+        // -webkit-transform: rotate(90deg);
+        // -moz-transform: rotate(90deg);
+        // -o-transform: rotate(90deg);
+        // -ms-transform: rotate(90deg);
+      }
+    }
+  }
+}

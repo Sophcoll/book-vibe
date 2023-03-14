@@ -11,17 +11,12 @@ html {
     max-height: 100vh;
 }
 
-h1 {
-    margin: 0;
-}
-
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
 button {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+li {
+    list-style: none;
 }

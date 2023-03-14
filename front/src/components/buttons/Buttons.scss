@@ -1,6 +1,6 @@
 @use "../../abstracts/" as *;
 
-.submit-btn {
+.button {
     font-size: 1.6rem;
     line-height: 2rem;
     color: $light;
@@ -11,7 +11,19 @@
     font-weight: 500;
 }
 
-.submit-btn.dark {
+.button.dark {
     color: $dark;
     border: solid 0.2rem $dark;
+}
+
+.button--back {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    text-transform: lowercase;
+    border: none;
+}
+
+.button--back.dark {
+    color: $dark;
+    border: none;
 }

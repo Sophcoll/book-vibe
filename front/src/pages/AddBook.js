@@ -50,7 +50,7 @@ const AddBook = () => {
         </div>
 
 
-        {/* <-- ALLANA PUT FORM HERE --> */}
+        {/* <-- ALLANA PUT FORM HERE (REPLACE THIS ONE) --> */}
         <div className="add-book__right-col">
           <form action="" className="add-book__right-col form">
             <input type="text" />
@@ -63,7 +63,7 @@ const AddBook = () => {
       </div>
 
       {/* <-- FORM SECTION ENDS --> */}
-      
+
       <AddBookFooter
         handleColor={handleColor}
         userBackgroundColor={userBackgroundColor}
