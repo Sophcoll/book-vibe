@@ -6,7 +6,7 @@ const BookList = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const response = await fetch('/')
+            const response = await fetch('http://localhost:4000/')
             const json = await response.json()
 
             if (response.ok) {
