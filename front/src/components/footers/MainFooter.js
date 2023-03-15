@@ -6,7 +6,7 @@ const MainFooter = () => {
         <footer className="footer footer--main">
             <div className="footer__logo">
                 <h1>book vibe ~</h1>
-                <p>read a book, rate its vibe.</p>
+                <p>read a book, colour its vibe.</p>
             </div>
             <AddBookBtn />
         </footer>
