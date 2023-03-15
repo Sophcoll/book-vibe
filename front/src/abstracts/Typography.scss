@@ -19,7 +19,7 @@ h1 {
 }
 
 
-h1.display {
+h1.landing {
     font-size: 9.6rem;
     line-height: 12.7rem;
     font-weight: 700;
@@ -27,16 +27,16 @@ h1.display {
     color: $light;
 }
 
-h2.display {
+h2.landing {
     font-size: 3.6rem;
     line-height: 4.8rem;
     font-weight: 600;
     color: $light;
 }
 
-
-
-
+h2 {
+    margin: 0;
+}
 
 p {
     font-size: 1.6rem;
