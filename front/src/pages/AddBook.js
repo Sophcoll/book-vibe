@@ -6,6 +6,7 @@ import AddBookFooter from "../components/footers/AddBookFooter";
 //HOOKS
 import { useState } from "react";
 import chroma from "chroma-js";
+import { NavLink } from "react-router-dom";
 
 //STYLE SHEETS
 import "./AddBook.scss";
@@ -48,20 +49,15 @@ const AddBook = () => {
       >
         <div className="add-book__left-col">
           <h1 className="header">add a book</h1>
-          <BackBtn brightness={brightness} />
+            <NavLink to={"/books"}>
+              <BackBtn brightness={brightness} />
+            </NavLink>
         </div>
 
-
-        
         <div className="add-book__right-col">
          <BookForm userBackgroundColor={userBackgroundColor}></BookForm>
         </div>  
-       
-
       </div>
-
-     
-
       <AddBookFooter
         handleColor={handleColor}
       />

@@ -1,6 +1,6 @@
 //HOOKS
 import { NavLink } from "react-router-dom";
-import BookList from "../components/book-list/BookList";
+import BooksList from "../components/book-list/BooksList";
 
 // COMPONENT
 
@@ -15,7 +15,7 @@ const Books = () => {
   return (
     <div>
       <div className="books">
-        < BookList />
+        < BooksList />
      
 
         {/* <NavLink to={'/'}>

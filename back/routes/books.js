@@ -12,18 +12,18 @@ const {
 const router = express.Router();
 
 // GET all books
-router.get('/', getBooks)
+router.get('/books', getBooks)
 
 // GET a single book
-router.get('/:id', getBook)
+router.get('/books/:id', getBook)
 
 // POST a new book
-router.post('/', createBook)
+router.post('/books', createBook)
 
 // DELETE a book
-router.delete('/:id', deleteBook)
+router.delete('/books/:id', deleteBook)
 
 // UPDATE a book
-router.put('/:id', updateBook)
+router.put('/books/:id', updateBook)
 
 module.exports = router

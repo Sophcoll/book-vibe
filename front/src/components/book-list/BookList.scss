@@ -1,7 +1,6 @@
 @use "../../abstracts/" as *;
 
 .book-list {
-  background-color: pink;
   min-width: 100vw;
   max-width: 100vw;
   overflow-y: hidden;
@@ -19,13 +18,13 @@
     cursor: pointer;
 
     &:last-of-type {
-        flex: 1;
-        border-right: none;
-        @include flex(flex-start, flex-start, column);
+      flex: 1;
+      border-right: none;
+      @include flex(flex-start, flex-start, column);
 
-        .book-list__item-title {
-            padding-left: 2.5rem;
-        }
+      .book-list__item-title {
+        padding-left: 2.5rem;
+      }
     }
 
     &-title {
@@ -67,6 +66,24 @@
       &:last-of-type {
         width: fit-content;
       }
+    }
+  }
+}
+
+
+
+.book-list__item.dark {
+  border-right: solid $dark 0.1rem;
+
+  .book-list__title {
+    color: $dark;
+  }
+  .book-list__date {
+    p {
+      color: $dark;
+    }
+    .line {
+      background-color: $dark;
     }
   }
 }
