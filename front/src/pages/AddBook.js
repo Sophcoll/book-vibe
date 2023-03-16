@@ -2,6 +2,7 @@
 import BackBtn from "../components/buttons/BackBtn";
 import SubmitBtn from "../components/buttons/SubmitBtn";
 import AddBookFooter from "../components/footers/AddBookFooter";
+import BookFormAdd from "../components/form/BookFormAdd.js";
 
 //HOOKS
 import { useState } from "react";
@@ -10,7 +11,6 @@ import { NavLink } from "react-router-dom";
 
 //STYLE SHEETS
 import "./AddBook.scss";
-import BookForm from "../components/form/BookForm";
 
 const AddBook = () => {
   //-------------------------------------------------------------------------------------------------------------------------------
@@ -22,14 +22,11 @@ const AddBook = () => {
   // stores the brightness value to assess whether the text & buttons in the page need to be dark or light to contrast background
   const [brightness, setBrightness] = useState();
 
-
-
   //-------------------------------------------------------------------------------------------------------------------------------
   //CALL BACK FUNCTIONS
 
   // function is fired when user clicks on the color picker and changes the color;
   const handleColor = (e) => {
-
     setUserBackgroundColor(e.target.value);
 
     // transforms the hex value into an rgb value so that we can execute the luminance() function below;
@@ -38,7 +35,6 @@ const AddBook = () => {
     // finds luminance value and stores this in brightness useState above;
     setBrightness(color.luminance());
   };
-
 
   //-------------------------------------------------------------------------------------------------------------------------------
   return (
@@ -49,18 +45,16 @@ const AddBook = () => {
       >
         <div className="add-book__left-col">
           <h1 className="header">add a book</h1>
-            <NavLink to={"/books"}>
-              <BackBtn brightness={brightness} />
-            </NavLink>
+          <NavLink to={"/books"}>
+            <BackBtn brightness={brightness} />
+          </NavLink>
         </div>
 
         <div className="add-book__right-col">
-         <BookForm userBackgroundColor={userBackgroundColor}></BookForm>
-        </div>  
+          <BookFormAdd userBackgroundColor={userBackgroundColor} />
+        </div>
       </div>
-      <AddBookFooter
-        handleColor={handleColor}
-      />
+      <AddBookFooter handleColor={handleColor} />
     </div>
   );
 };
