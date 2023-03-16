@@ -1,7 +1,7 @@
 // HOOKS
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
@@ -43,37 +43,39 @@ const BookDetails = () => {
     if (!response.ok) {
       console.log("response not ok");
     }
-  };
+       }
+  
+  
+  return ( 
+     <>
+               <div className="book-details">
+               
+                {bookDetails && bookDetails ? 
+                (<div>
+                    <h1>{bookDetails.title}</h1>
+                    <p>{bookDetails.description}</p>
+                    <p>{bookDetails.createdAt}</p>
+                    </div>) : (null)}
+            
+                <br />
+                <br />
+                <br />
+                <Link to={`/books/${bookId}/update`} state={bookId}>
+                <button>UPDATE</button>
+                </Link>
+ <NavLink to={"/books"}>
+              <BackBtn />
+            </NavLink>
+               
 
-  return (
-    <div>
-      <div className="book-details">
-        {bookDetails && bookDetails ? (
-          <div>
-            <h1>{bookDetails.title}</h1>
-            <p>{bookDetails.description}</p>
-            <p>{bookDetails.createdAt}</p>
-          </div>
-        ) : null}
-
-        <br />
-        <br />
-        <br />
-        <Link to={`/books/${bookId}/update`} state={bookId}>
-          <button>UPDATE</button>
-        </Link>
-        <NavLink to={"/books"}>
-          <BackBtn />
-        </NavLink>
-
-        <button onClick={deleteHandler} className="button dark delete">
-          Delete
-        </button>
-      </div>
-
-      <MainFooter />
-    </div>
-  );
-};
-
+          <button onClick={deleteHandler} className="button dark delete">Delete</button>
+            </div>
+        
+            < MainFooter />
+      
+   </>
+     );
+}
+ 
 export default BookDetails;
+
