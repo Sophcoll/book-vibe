@@ -1,7 +1,7 @@
 // HOOKS
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
@@ -48,7 +48,8 @@ const BookDetails = () => {
        }
   
   
-    return ( 
+  return ( 
+     <>
                <div className="book-details">
                
                 {bookDetails && bookDetails ? 
@@ -71,12 +72,10 @@ const BookDetails = () => {
 
           <button onClick={deleteHandler} className="button dark delete">Delete</button>
             </div>
-    </div>
-          
-         </div>
-        </div>
+        
             < MainFooter />
-        </div>
+      
+   </>
      );
 }
  
