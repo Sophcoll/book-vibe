@@ -1,15 +1,17 @@
 // HOOKS
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-import "./BookDetails.scss";
+// COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
+
+// STYLE SHEETS
+import "./BookDetails.scss";
 
 const BookDetails = () => {
 
     const [bookDetails, setBookDetails] = useState(null)
     const bookId = useParams().bookId
-
 
 
     useEffect(() => {
@@ -25,14 +27,24 @@ const BookDetails = () => {
         fetchBookDetails(bookId);
       }, []);
 
-      console.log(bookDetails)
 
     return ( 
         <div>
             <div className="book-details">
-                <h1>Title goes here</h1>
-                <p>Author goes here</p>
-                <p>Description goes here</p>
+               
+                {bookDetails && bookDetails ? 
+                (<div>
+                    <h1>{bookDetails.title}</h1>
+                    <p>{bookDetails.description}</p>
+                    <p>{bookDetails.createdAt}</p>
+                    </div>) : (null)}
+            
+                <br />
+                <br />
+                <br />
+                <Link to={`/books/${bookId}/update`} state={bookId}>
+                <button>UPDATE</button>
+                </Link>
             </div>
             < MainFooter />
         </div>

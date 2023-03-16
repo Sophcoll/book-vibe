@@ -1,10 +1,15 @@
+// HOOKS 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+// COMPONENTS
+import SubmitBtn from "../buttons/SubmitBtn";
+
+// STYLE SHEETS
 import "./BookForm.scss";
 // import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
-const BookForm = ({ userBackgroundColor }) => {
+const BookFormAdd = ({ userBackgroundColor }) => {
   // const { dispatch } = useWorkoutsContext()
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -13,6 +18,7 @@ const BookForm = ({ userBackgroundColor }) => {
   const [emptyFields, setEmptyFields] = useState([]);
 
   const color = userBackgroundColor;
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -78,12 +84,13 @@ const BookForm = ({ userBackgroundColor }) => {
         className={emptyFields.includes("description") ? "error" : ""}
       />
 
-      
-        <button>Add</button>
+      < SubmitBtn />
+        {/* <button>Add</button> */}
         {error && <div className="error">{error}</div>}
-    
+
+        
     </form>
   );
 };
 
-export default BookForm;
+export default BookFormAdd;
