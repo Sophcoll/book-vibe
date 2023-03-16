@@ -13,13 +13,13 @@ const getBook = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'no such book'})
+        return res.status(404).json({error: 'no such id'})
     }
         
     const book = await Book.findById(id)
 
     if (!book) {
-        return res.status(404).json({error: "no such book"})
+        return res.status(404).json({error: "cannot get book, no such book"})
     }
 
     res.status(200).json(book)
@@ -44,13 +44,13 @@ const deleteBook = async (req, res) => {
     const { id } = req.params
     
       if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'no such book'})
+        return res.status(404).json({error: 'no such id'})
     }
 
     const book = await Book.findOneAndDelete({ _id: id })
     
      if (!book) {
-        return res.status(404).json({error: "no such book"})
+        return res.status(404).json({error: "cant delete book because no such book"})
     }
 
     res.status(200).json(book)
@@ -62,14 +62,14 @@ const updateBook = async (req, res) => {
      const { id } = req.params
     
       if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'no such book'})
+        return res.status(404).json({error: 'cant update because no such id'})
     }
     const book = await Book.findByIdAndUpdate({ _id: id }, {
         ...req.body
     })
 
      if (!book) {
-        return res.status(404).json({error: "no such book"})
+        return res.status(404).json({error: "cant update book because no such book"})
     }
 
     res.status(200).json(book)

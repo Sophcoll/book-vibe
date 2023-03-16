@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import chroma from "chroma-js";
 
+// date fns - npm install date-fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 // STYLE SHEETS
 import "./BookList.scss";
 
@@ -19,7 +22,7 @@ const BooksList = () => {
 
       if (response.ok) {
         setBooks(json);
-        console.log(books);
+        // console.log(books);
       }
     };
 
@@ -43,7 +46,7 @@ const BooksList = () => {
                 <div className="book-list__item-date">
                   <span className="line"></span>
                   <p>reviewed</p>
-                  <p>{book.createdAt}</p>
+                  <p>{formatDistanceToNow(new Date(book.createdAt), {addSuffix: true})}</p>
                 </div>
                 </Link>
               </li>
