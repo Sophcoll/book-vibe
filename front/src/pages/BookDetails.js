@@ -1,20 +1,24 @@
 // HOOKS
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
-import "../components/buttons/Buttons.scss";
 import BackBtn from "../components/buttons/BackBtn";
+import DeleteBtn from "../components/buttons/DeleteBtn";
 
 // STYLE SHEETS
 import "./BookDetails.scss";
+import "../components/buttons/Buttons.scss";
+import UpdateBtn from "../components/buttons/UpdateBtn";
 
 const BookDetails = () => {
+  // use states
   const [bookDetails, setBookDetails] = useState(null);
   const bookId = useParams().bookId;
 
+  // API fetch request to mongoDB
   useEffect(() => {
     const fetchBookDetails = async (bookId) => {
       const response = await fetch(`http://localhost:4000/books/${bookId}`);
@@ -28,6 +32,7 @@ const BookDetails = () => {
     fetchBookDetails(bookId);
   }, []);
 
+  // delete request to mongoDB - removes entry from database
   const deleteHandler = async () => {
     const response = await fetch(
       `http://localhost:4000/books/` + bookDetails._id,
@@ -47,16 +52,43 @@ const BookDetails = () => {
 
   return (
     <div>
-      <div className="book-details">
-        {bookDetails && bookDetails ? (
-          <div>
-            <h1>{bookDetails.title}</h1>
-            <p>{bookDetails.description}</p>
-            <p>{bookDetails.createdAt}</p>
-          </div>
-        ) : null}
+      {bookDetails && bookDetails ? (
+        <div
+          style={
+            bookDetails && bookDetails
+              ? { backgroundColor: bookDetails.color }
+              : null
+          }
+          className="book-details"
+        >
+          <header className="book-details__header">
+            <div className="title-author-wrapper">
+              <h1 className="book-details__title">{bookDetails.title}</h1>
+              <p className="book-details__author">
+                Written by {bookDetails.author}
+              </p>
+            </div>
+            <div className="button-wrapper">
+              <DeleteBtn deleteHandler={deleteHandler} />
+              <UpdateBtn />
+            </div>
+          </header>
+          <main className="book-details__body">
+            <div className="post">
+              <h4 className="post-title">thoughts</h4>
+              <p className="post-description">{bookDetails.description}</p>
+            </div>
+          </main>
+          <footer className="book-details__footer">
+            <Link to="/books">
+              <BackBtn />
+            </Link>
+            <p className="book-details__date">{bookDetails.createdAt}</p>
+          </footer>
+        </div>
+      ) : null}
 
-        <br />
+      {/* <br />
         <br />
         <br />
         <Link to={`/books/${bookId}/update`} state={bookId}>
@@ -64,12 +96,11 @@ const BookDetails = () => {
         </Link>
         <NavLink to={"/books"}>
           <BackBtn />
-        </NavLink>
+        </NavLink> */}
 
-        <button onClick={deleteHandler} className="button dark delete">
+      {/* <button onClick={deleteHandler} className="button dark delete">
           Delete
-        </button>
-      </div>
+        </button> */}
 
       <MainFooter />
     </div>

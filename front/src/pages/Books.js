@@ -2,8 +2,7 @@
 import { NavLink } from "react-router-dom";
 import BooksList from "../components/book-list/BooksList";
 
-// COMPONENT
-
+// COMPONENTS
 import BackBtn from "../components/buttons/BackBtn";
 import MainFooter from "../components/footers/MainFooter";
 
@@ -16,11 +15,6 @@ const Books = () => {
     <div>
       <div className="books">
         < BooksList />
-     
-
-        {/* <NavLink to={'/'}>
-          <BackBtn />
-        </NavLink> */}
       </div>
       <MainFooter />
     </div>
