@@ -9,11 +9,11 @@
   @include flex(flex-start, flex-start, row);
 
   &__item {
-    border-right: solid $light 0.1rem;
-    background-color: rgb(19, 46, 37);
+    color: $light;
+    border-right: 0.1rem solid $light;
     height: 100%;
     // width: 15rem;
-    padding: 2rem 3rem;
+    padding: 3rem;
     @include flex(center, flex-start, column);
     cursor: pointer;
 
@@ -32,7 +32,7 @@
       line-height: 2.6rem;
       font-weight: 500;
       text-transform: uppercase;
-      color: $light;
+      // color: $light;
       writing-mode: vertical-rl;
       flex: 1;
       white-space: nowrap;
@@ -71,19 +71,36 @@
 }
 
 
+// dark styling for light background;
+// .book-list__item.dark {
+//   // border-right: solid $dark 0.1rem;
+
+//   .book-list__title {
+//     color: $dark;
+//   }
+//   .book-list__date {
+//     p {
+//       color: $dark;
+//     }
+//     .line {
+//       background-color: $dark;
+//     }
+//   }
+// }
 
 .book-list__item.dark {
-  border-right: solid $dark 0.1rem;
+  color: $dark;
 
-  .book-list__title {
-    color: $dark;
-  }
-  .book-list__date {
-    p {
-      color: $dark;
-    }
-    .line {
-      background-color: $dark;
-    }
+  
+}
+
+// correcting the styling for react-router link
+.book-list__item {
+  a {
+    @include flex(center, flex-start, column);
+    height: 100%;
   }
 }
+
+// conditional styling for last book (only apply if there is more than one book in the list)
+

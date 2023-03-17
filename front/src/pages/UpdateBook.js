@@ -30,7 +30,7 @@ const UpdateBook = () => {
         fetchBookDetails(bookId);
       }, []);
 
-    //   console.log(bookDetails)
+
 
   return (
     <div>

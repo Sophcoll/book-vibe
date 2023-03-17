@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import chroma from "chroma-js";
 
 // date fns - npm install date-fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 // STYLE SHEETS
 import "./BookList.scss";
@@ -22,12 +22,12 @@ const BooksList = () => {
 
       if (response.ok) {
         setBooks(json);
-        // console.log(books);
       }
     };
-
-    fetchBooks();
+    fetchBooks()
   }, []);
+
+// console.log(books)
 
   return (
     <div>
@@ -35,22 +35,26 @@ const BooksList = () => {
         {books &&
           books.map((book) => {
             return (
-              <li key={book._id}
+              <li
+                key={book._id}
                 style={{ backgroundColor: book.color }}
                 className={
                   brightness > 0.3 ? "book-list__item dark" : "book-list__item"
                 }
               >
-              <Link to={`/books/${book._id}`} state={book}>
-                <h2 className="book-list__item-title">{book.title}</h2>
-                <div className="book-list__item-date">
-                  <span className="line"></span>
-                  <p>reviewed</p>
-                  <p>{formatDistanceToNow(new Date(book.createdAt), {addSuffix: true})}</p>
-                </div>
+                <Link to={`/books/${book._id}`} state={book}>
+                  <h2 className="book-list__item-title">{book.title}</h2>
+                  <div className="book-list__item-date">
+                    <span className="line"></span>
+                    <p>reviewed</p>
+                    <p>
+                      {formatDistanceToNow(new Date(book.createdAt), {
+                        addSuffix: true,
+                      })}
+                    </p>
+                  </div>
                 </Link>
               </li>
-            
             );
           })}
       </ul>

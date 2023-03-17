@@ -4,16 +4,11 @@
     font-size: 1.6rem;
     line-height: 2rem;
     color: $light;
-    border: solid 0.2rem $light;
+    border: solid 0.1rem $light;
     border-radius: 5rem;
     padding: 1rem 1.6rem;
     text-transform: uppercase;
     font-weight: 500;
-}
-
-.button.dark {
-    color: $dark;
-    border: solid 0.2rem $dark;
 }
 
 .button--back {
@@ -22,6 +17,20 @@
     text-transform: lowercase;
     border: none;
 }
+
+.button--small {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 0.8rem 1.6rem;
+}
+
+
+// dark styling for when background is light 
+.button.dark {
+    color: $dark;
+    border: solid 0.2rem $dark;
+}
+
 
 .button--back.dark {
     color: $dark;
