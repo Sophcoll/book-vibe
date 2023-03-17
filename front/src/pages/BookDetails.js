@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
 import BackBtn from "../components/buttons/BackBtn";
@@ -12,6 +13,7 @@ import DeleteBtn from "../components/buttons/DeleteBtn";
 import "./BookDetails.scss";
 import "../components/buttons/Buttons.scss";
 import UpdateBtn from "../components/buttons/UpdateBtn";
+
 
 const BookDetails = () => {
   // use states
@@ -98,13 +100,17 @@ const BookDetails = () => {
           <BackBtn />
         </NavLink> */}
 
-      {/* <button onClick={deleteHandler} className="button dark delete">
+      <button onClick={deleteHandler} className="button dark delete">
           Delete
-        </button> */}
+        </button> 
 
       <MainFooter />
     </div>
   );
 };
 
+
+
+ 
 export default BookDetails;
+
