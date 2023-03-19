@@ -20,7 +20,7 @@ const AddBook = () => {
   const [userBackgroundColor, setUserBackgroundColor] = useState("#1A49CB");
 
   // stores the brightness value to assess whether the text & buttons in the page need to be dark or light to contrast background
-  const [brightness, setBrightness] = useState();
+  const [colorBrightness, setColorBrightness] = useState(null);
 
   //-------------------------------------------------------------------------------------------------------------------------------
   //CALL BACK FUNCTIONS
@@ -33,25 +33,26 @@ const AddBook = () => {
     let color = chroma(userBackgroundColor);
 
     // finds luminance value and stores this in brightness useState above;
-    setBrightness(color.luminance());
+    setColorBrightness(color.luminance());
   };
+
 
   //-------------------------------------------------------------------------------------------------------------------------------
   return (
     <div>
       <div
         style={{ backgroundColor: userBackgroundColor }}
-        className={brightness > 0.3 ? "add-book dark" : "add-book"}
+        className={colorBrightness > 0.3 ? "add-book dark" : "add-book"}
       >
         <div className="add-book__left-col">
           <h1 className="header">add a book</h1>
           <NavLink to={"/books"}>
-            <BackBtn brightness={brightness} />
+            <BackBtn colorBrightness={colorBrightness} />
           </NavLink>
         </div>
 
         <div className="add-book__right-col">
-          <BookFormAdd userBackgroundColor={userBackgroundColor} />
+          <BookFormAdd userBackgroundColor={userBackgroundColor} colorBrightness={colorBrightness}/>
         </div>
       </div>
       <AddBookFooter handleColor={handleColor} />

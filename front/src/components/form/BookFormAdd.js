@@ -9,7 +9,7 @@ import SubmitBtn from "../buttons/SubmitBtn";
 import "./BookForm.scss";
 
 
-const BookFormAdd = ({ userBackgroundColor }) => {
+const BookFormAdd = ({ userBackgroundColor, colorBrightness }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -17,11 +17,13 @@ const BookFormAdd = ({ userBackgroundColor }) => {
   const [emptyFields, setEmptyFields] = useState([]);
   const navigate = useNavigate();
   const color = userBackgroundColor;
+  const brightness = colorBrightness;
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const book = { title, author, color, description };
+  
+    const book = { title, author, color, brightness, description };
 
 
     const response = await fetch("http://localhost:4000/books", {
@@ -51,7 +53,7 @@ const BookFormAdd = ({ userBackgroundColor }) => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="add-book-form" onSubmit={handleSubmit}>
       <div className="form-wrapper">
       <label>Title</label>
       <input

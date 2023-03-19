@@ -28,7 +28,7 @@ const getBook = async (req, res) => {
 
 // POST a new book
 const createBook = async (req, res) => {
-    const { title, author, color, description } = req.body
+    const { title, author, color, brightness, description } = req.body
     
        // error handling
     let emptyFields = []
@@ -47,7 +47,7 @@ const createBook = async (req, res) => {
 
     // if no errors add to mongodb
     try {
-        const book = await Book.create({ title, author, color, description })
+        const book = await Book.create({ title, author, color, brightness, description })
         res.status(200).json(book)
     } catch (error) {
         res.status(400).json({error: error.message})

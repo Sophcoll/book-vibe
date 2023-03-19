@@ -3,24 +3,31 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
 import BackBtn from "../components/buttons/BackBtn";
 import DeleteBtn from "../components/buttons/DeleteBtn";
+import EditBtn from "../components/buttons/EditBtn";
 
 // STYLE SHEETS
 import "./BookDetails.scss";
 import "../components/buttons/Buttons.scss";
-import UpdateBtn from "../components/buttons/UpdateBtn";
-
 
 const BookDetails = () => {
-  // use states
-  const [bookDetails, setBookDetails] = useState(null);
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //USE STATES
+
+  // stores book details that are being retrieved through the fetch call to the database
+  const [bookDetails, setBookDetails] = useState();
+  const [userBackgroundColor, setUserBackgroundColor] = useState();
+  const [colorBrightness, setColorBrightness] = useState();
+
+  // book id to use as parameter in fetch url
   const bookId = useParams().bookId;
 
-  // API fetch request to mongoDB
+  //-------------------------------------------------------------------------------------------------------------------------------
+  // FETCH REQUEST TO MONGODB ON PAGE LOAD
+
   useEffect(() => {
     const fetchBookDetails = async (bookId) => {
       const response = await fetch(`http://localhost:4000/books/${bookId}`);
@@ -28,13 +35,17 @@ const BookDetails = () => {
 
       if (response.ok) {
         setBookDetails(json);
+        setUserBackgroundColor(json.color);
+        setColorBrightness(json.brightness);
       }
     };
 
     fetchBookDetails(bookId);
   }, []);
 
-  // delete request to mongoDB - removes entry from database
+  //-------------------------------------------------------------------------------------------------------------------------------
+  // DELETE REQUEST TO MONGODB ON CLICK OF DELETE BUTTON
+
   const deleteHandler = async () => {
     const response = await fetch(
       `http://localhost:4000/books/` + bookDetails._id,
@@ -52,16 +63,19 @@ const BookDetails = () => {
     }
   };
 
+  //-------------------------------------------------------------------------------------------------------------------------------
   return (
     <div>
       {bookDetails && bookDetails ? (
         <div
           style={
-            bookDetails && bookDetails
-              ? { backgroundColor: bookDetails.color }
+            userBackgroundColor && userBackgroundColor
+              ? { backgroundColor: userBackgroundColor }
               : null
           }
-          className="book-details"
+          className={
+            bookDetails.brightness > 0.3 ? "book-details dark" : "book-details"
+          }
         >
           <header className="book-details__header">
             <div className="title-author-wrapper">
@@ -71,8 +85,13 @@ const BookDetails = () => {
               </p>
             </div>
             <div className="button-wrapper">
-              <DeleteBtn deleteHandler={deleteHandler} />
-              <UpdateBtn />
+              <DeleteBtn
+                deleteHandler={deleteHandler}
+                bookDetails={bookDetails}
+              />
+              <Link to={`/books/${bookId}/update`} state={bookId}>
+                <EditBtn colorBrightness={colorBrightness} />
+              </Link>
             </div>
           </header>
           <main className="book-details__body">
@@ -83,34 +102,16 @@ const BookDetails = () => {
           </main>
           <footer className="book-details__footer">
             <Link to="/books">
-              <BackBtn />
+              <BackBtn colorBrightness={colorBrightness} />
             </Link>
             <p className="book-details__date">{bookDetails.createdAt}</p>
           </footer>
         </div>
       ) : null}
 
-      {/* <br />
-        <br />
-        <br />
-        <Link to={`/books/${bookId}/update`} state={bookId}>
-          <button>UPDATE</button>
-        </Link>
-        <NavLink to={"/books"}>
-          <BackBtn />
-        </NavLink> */}
-
-      <button onClick={deleteHandler} className="button dark delete">
-          Delete
-        </button> 
-
       <MainFooter />
     </div>
   );
 };
 
-
-
- 
 export default BookDetails;
-

@@ -1,40 +1,61 @@
+@use "../../abstracts/" as *;
 
+.update-form,
+.add-book-form {
+    height: 100%;
+    @include flex(flex-start, flex-start, column)
+}
 
 input {
     display: block;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    font-weight: 400;
+    color: $light;
     width: 100%;
     border: none;
     background-color: transparent;
-    box-sizing: border-box;  
+    box-sizing: border-box; 
+    padding: 1.6rem 0; 
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: $light;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    font-weight: 400;
 }
 
 textarea {
     font-size: 20px;
-    color: white;
+    color: $light;
     border: none;
     background-color: transparent;
     padding: 10px;
     width: 100%;
-    height: 30vh;
+    // height: 30vh;
+    height: 100%;
     box-sizing: border-box;
+    padding: 2rem 0; 
+    resize: none;
 }
 
 label {
-    color: #ffefef;
-   font-size: 2em;
+    color: $light;
+   font-size: 2rem;
 }
 
 .form-wrapper {
-    border-top: solid .1px white;
-    margin: 10px 0;
-    width: 95%;
+    border-top: solid 0.1rem $light;
+    // margin: 10px 0;
+    width: 100%;
+    padding: 1.6rem 0;
 }
 
 .form-wrapper.last{
-    border-bottom: solid .1px white;
+    border-bottom: solid 0.1rem $light;
+    flex: 1;
 }
 
 div.error {
@@ -42,7 +63,7 @@ div.error {
     background: #fa1e1e;
     width: 200px;
     border: 1px solid rgb(220, 62, 88);
-    color: rgb(253, 251, 251);
+    color: $light;
     border-radius: 4px;
     margin: 20px 0;
     font-size: 2em;
@@ -54,4 +75,22 @@ input.error {
 
 textarea.error {
      border: 3px solid rgb(232, 20, 55); 
+}
+
+.update-form.dark{
+    label,
+    input,
+    input::placeholder,
+    textarea::placeholder {
+        color: $dark;
+    }
+
+    .form-wrapper {
+        border-top: solid 0.1rem $dark;
+    }
+
+    .form-wrapper.last {
+        border-bottom: solid 0.1rem $dark;
+    }
+
 }

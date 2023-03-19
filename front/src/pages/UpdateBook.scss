@@ -1,5 +1,29 @@
+@use "../abstracts/" as *;
+
 .update-book {
-    background-color: green;
-    height: 80vh;
-    width: 100%;
+  background-color: $main-blue;
+  min-height: 80vh;
+  min-width: 100vw;
+  padding: 6rem;
+  @include gridColumn12(0);
+
+  &__left-col {
+    grid-column: span 5;
+    height: 100%;
+    @include flex(flex-start, space-between, column);
+
+    .header {
+      color: $light;
+    }
+  }
+
+  &__right-col {
+    grid-column: span 7;
+  }
+}
+
+.update-book.dark {
+  .header {
+    color: $dark;
+  }
 }
