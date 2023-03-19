@@ -12,8 +12,10 @@ import "./BookList.scss";
 const BooksList = () => {
   const [books, setBooks] = useState(null);
 
-  const backgroundColor = "#71B3FF";
-  const brightness = chroma(backgroundColor).luminance();
+  let brightnessArray = []
+
+  // const backgroundColor = "#71B3FF";
+  // const brightness = chroma(backgroundColor).luminance();
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -27,7 +29,6 @@ const BooksList = () => {
     fetchBooks()
   }, []);
 
-// console.log(books)
 
   return (
     <div>
@@ -35,14 +36,14 @@ const BooksList = () => {
         {books &&
           books.map((book) => {
             return (
+              <Link to={`/books/${book._id}`} state={book} key={book._id} className="book-list__link">
               <li
-                key={book._id}
+                
                 style={{ backgroundColor: book.color }}
                 className={
-                  brightness > 0.3 ? "book-list__item dark" : "book-list__item"
+                  book.brightness > 0.3 ? "book-list__item dark" : "book-list__item"
                 }
               >
-                <Link to={`/books/${book._id}`} state={book}>
                   <h2 className="book-list__item-title">{book.title}</h2>
                   <div className="book-list__item-date">
                     <span className="line"></span>
@@ -53,8 +54,8 @@ const BooksList = () => {
                       })}
                     </p>
                   </div>
-                </Link>
               </li>
+              </Link>
             );
           })}
       </ul>

@@ -63,3 +63,17 @@
     @include flex(center, space-between, row);
   }
 }
+
+
+// dark styling for light background;
+.book-details.dark {
+    color: $dark;
+
+    .book-details__header {
+        border-bottom: $dark solid 0.1rem;
+    }
+
+    .book-details__footer {
+        border-top: $dark solid 0.1rem;
+    }
+}

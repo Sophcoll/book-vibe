@@ -1,44 +1,45 @@
 @use "../../abstracts/" as *;
 
 .button {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    color: $light;
-    border: solid 0.1rem $light;
-    border-radius: 5rem;
-    padding: 1rem 1.6rem;
-    text-transform: uppercase;
-    font-weight: 500;
+  color: $light;
+  border: solid 0.1rem $light;
+  border-radius: 5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.8rem 1.6rem;
 }
 
 .button--back {
-    font-size: 2rem;
-    line-height: 2.6rem;
-    text-transform: lowercase;
-    border: none;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  text-transform: lowercase;
+  border: none;
 }
 
-.button--small {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    padding: 0.8rem 1.6rem;
+.button--big {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  padding: 1rem 1.6rem;
 }
 
+.button--margin-left {
+  margin: 1rem 0;
+  margin-left: auto;
+}
 
-// dark styling for when background is light 
+// dark styling for when background is light
 .button.dark {
-    color: $dark;
-    border: solid 0.2rem $dark;
+  color: $dark;
+  border: solid 0.1rem $dark;
 }
-
 
 .button--back.dark {
-    color: $dark;
-    border: none;
+  color: $dark;
+  border: none;
 }
 
-
-.button.submit {
-    position: absolute;
-    right: 6em;
+.button.button--big.button--margin-left.dark {
+  color: $dark;
+  border: solid 0.1rem $dark;
 }
+

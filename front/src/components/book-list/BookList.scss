@@ -8,31 +8,24 @@
   height: 80vh;
   @include flex(flex-start, flex-start, row);
 
+  &__link {
+    height: 100%;
+  }
+
   &__item {
     color: $light;
     border-right: 0.1rem solid $light;
     height: 100%;
-    // width: 15rem;
     padding: 3rem;
     @include flex(center, flex-start, column);
     cursor: pointer;
-
-    &:last-of-type {
-      flex: 1;
-      border-right: none;
-      @include flex(flex-start, flex-start, column);
-
-      .book-list__item-title {
-        padding-left: 2.5rem;
-      }
-    }
 
     &-title {
       font-size: 2rem;
       line-height: 2.6rem;
       font-weight: 500;
       text-transform: uppercase;
-      // color: $light;
+      color: $light;
       writing-mode: vertical-rl;
       flex: 1;
       white-space: nowrap;
@@ -70,37 +63,32 @@
   }
 }
 
-
 // dark styling for light background;
-// .book-list__item.dark {
-//   // border-right: solid $dark 0.1rem;
-
-//   .book-list__title {
-//     color: $dark;
-//   }
-//   .book-list__date {
-//     p {
-//       color: $dark;
-//     }
-//     .line {
-//       background-color: $dark;
-//     }
-//   }
-// }
-
-.book-list__item.dark {
+li.book-list__item.dark {
   color: $dark;
 
-  
-}
+  h2.book-list__item-title {
+    color: $dark;
+  }
 
-// correcting the styling for react-router link
-.book-list__item {
-  a {
-    @include flex(center, flex-start, column);
-    height: 100%;
+  div.book-list__item-date {
+    span.line {
+      background-color: $dark;
+    }
+    p {
+      color: $dark;
+    }
   }
 }
 
-// conditional styling for last book (only apply if there is more than one book in the list)
+// // last book styling 
+
+// .book-list__link:last-of-type {
+// flex: 1;
+
+// .book-list.dark:last-of-type {
+//   border-right: none;
+// }
+
+// }
 
