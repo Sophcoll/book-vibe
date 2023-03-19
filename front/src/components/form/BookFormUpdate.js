@@ -1,5 +1,6 @@
 // HOOKS
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // COMPONENTS
 import UpdateBtn from "../buttons/UpdateBtn";
@@ -59,6 +60,7 @@ const BookFormUpdate = ({ userBackgroundColor, colorBrightness, bookId }) => {
 
   //-------------------------------------------------------------------------------------------------------------------------------
   return (
+
     <form
       className={colorBrightness > 0.3 ? "update-form dark" : "update-form"}
       onSubmit={handleUpdate}
@@ -89,7 +91,12 @@ const BookFormUpdate = ({ userBackgroundColor, colorBrightness, bookId }) => {
           placeholder={description}
         />
       </div>
+      //<UpdateBtn colorBrightness={colorBrightness} />//
+      
+        <Link to={'/books'}>
       <UpdateBtn colorBrightness={colorBrightness} />
+      </Link>
+
     </form>
   );
 };
