@@ -75,8 +75,16 @@ const BookDetails = () => {
               </p>
             </div>
             <div className="button-wrapper">
+              <NavLink to={'/books'}>
+        <button onClick={deleteHandler} className="button button--small">
+          Delete
+        </button> </NavLink>
+      
+       <Link to={`/books/${bookId}/update`} state={bookId}>
+          <button className="button button--small">UPDATE</button>
+        </Link>
               {/* <DeleteBtn onClick={deleteHandler} /> */}
-              <UpdateBtn />
+              {/* <UpdateBtn /> */}
             </div>
           </header>
           <main className="book-details__body">
@@ -104,14 +112,7 @@ const BookDetails = () => {
           <BackBtn />
         </NavLink> */}
 
-      <NavLink to={'/books'}>
-        <button onClick={deleteHandler} className="button button--small delete">
-          Delete
-        </button> </NavLink>
       
-      <NavLink to={'/books/:bookId/update'}>
-        <UpdateBtn></UpdateBtn>
-      </NavLink>
 
       <MainFooter />
     </div>
