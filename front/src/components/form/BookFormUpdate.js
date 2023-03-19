@@ -1,5 +1,6 @@
 // HOOKS
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // COMPONENTS
 import UpdateBtn from "../buttons/UpdateBtn";
@@ -76,7 +77,9 @@ useEffect(() => {
         onChange={(event) => setDescription(event.target.value)}
         placeholder={description}
       />
+      <Link to={'/books'}>
       <UpdateBtn />
+      </Link>
     </form>
   );
 };
