@@ -1,10 +1,10 @@
-// HOOKS
+// HOOK
 import { NavLink } from "react-router-dom";
 
-// COMPONENTS
+// COMPONENT
 import AddBookBtn from "../buttons/AddBookBtn";
 
-// STYLE SHEETS
+// STYLE SHEET
 import "./Footers.scss";
 
 const MainFooter = () => {
