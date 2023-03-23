@@ -1,13 +1,13 @@
 // HOOKS
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
 import BackBtn from "../components/buttons/BackBtn";
 import DeleteBtn from "../components/buttons/DeleteBtn";
 import EditBtn from "../components/buttons/EditBtn";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 // STYLE SHEETS
 import "./BookDetails.scss";
@@ -27,6 +27,9 @@ const BookDetails = () => {
 
   // book id to use as parameter in fetch url
   const bookId = useParams().bookId;
+
+  // navigate hook to programmatically redirect back to 'BookDetails' component after delete button clicked
+  const navigate = useNavigate();
 
   //-------------------------------------------------------------------------------------------------------------------------------
   // FETCH REQUEST TO MONGODB ON PAGE LOAD
@@ -62,7 +65,8 @@ const BookDetails = () => {
 
     if (response.ok) {
       setBookDetails(json);
-  
+      navigate("/books/");
+
     }
     if (!response.ok) {
       console.log("delete not ok");
@@ -123,7 +127,12 @@ const BookDetails = () => {
             <Link to="/books">
               <BackBtn colorBrightness={colorBrightness} />
             </Link>
-            <p className="book-details__date">{bookDetails.createdAt}</p>
+            <p className="book-details__date">
+              {" "}
+              {formatDistanceToNow(new Date(bookDetails.createdAt), {
+                addSuffix: true,
+              })}
+            </p>
           </footer>
         </div>
       ) : null}

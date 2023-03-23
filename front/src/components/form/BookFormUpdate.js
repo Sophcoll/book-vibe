@@ -1,6 +1,7 @@
 // HOOKS
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 
 // COMPONENTS
 import UpdateBtn from "../buttons/UpdateBtn";
@@ -16,6 +17,8 @@ const BookFormUpdate = ({ userBackgroundColor, colorBrightness, bookId }) => {
   const [brightness, setBrightness] = useState("");
 
   const color = userBackgroundColor;
+
+  const navigate = useNavigate();
 
 
   //-------------------------------------------------------------------------------------------------------------------------------
@@ -45,7 +48,7 @@ const BookFormUpdate = ({ userBackgroundColor, colorBrightness, bookId }) => {
     event.preventDefault();
 
     console.log("submit");
-    const book = { title, author, color, description };
+    const book = { title, author, color, brightness, description };
     console.log(book);
 
     const response = await fetch(`http://localhost:4000/books/${bookId}`, {
@@ -56,13 +59,14 @@ const BookFormUpdate = ({ userBackgroundColor, colorBrightness, bookId }) => {
       },
     });
     const json = await response.json();
+    navigate(`/books/${bookId}`);
   };
 
   //-------------------------------------------------------------------------------------------------------------------------------
   return (
 
     <form
-      className={colorBrightness > 0.3 ? "update-form dark" : "update-form"}
+      className={colorBrightness > 0.3 ? "form dark" : "form"}
       onSubmit={handleUpdate}
     >
       <div className="form-wrapper">

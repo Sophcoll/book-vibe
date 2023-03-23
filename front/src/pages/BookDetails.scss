@@ -62,6 +62,10 @@
     padding-top: 2rem;
     @include flex(center, space-between, row);
   }
+
+  &__date {
+    text-transform: capitalize;
+  }
 }
 
 
