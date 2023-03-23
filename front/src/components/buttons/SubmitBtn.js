@@ -1,9 +1,9 @@
 // STYLE SHEET
 import "./Buttons.scss";
 
-const SubmitBtn = ({ colorBrightness }) => {
+const SubmitBtn = ({ brightness }) => {
     return ( 
-        <button className={colorBrightness > 0.3 ? "button button--big button--margin-left dark" : "button button--big button--margin-left"}>
+        <button className={brightness > 0.3 ? "button button--big button--margin-left dark" : "button button--big button--margin-left"}>
             Submit
         </button>
      );

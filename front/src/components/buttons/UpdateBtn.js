@@ -1,10 +1,10 @@
 // STYLE SHEET
 import "./Buttons.scss";
 
-const UpdateBtn = ({ colorBrightness }) => {
+const UpdateBtn = ({ brightness }) => {
 
     return ( 
-        <button className={colorBrightness > 0.3 ? "button button--big button--margin-left dark" : "button button--big button--margin-left"}>
+        <button className={brightness > 0.3 ? "button button--big button--margin-left dark" : "button button--big button--margin-left"}>
             Update
         </button>
      );
