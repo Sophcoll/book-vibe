@@ -1,7 +1,6 @@
 // HOOKS
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 // COMPONENTS
 import MainFooter from "../components/footers/MainFooter";
@@ -13,6 +12,9 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 // STYLE SHEETS
 import "./BookDetails.scss";
 import "../components/buttons/Buttons.scss";
+import UpdateBtn from "../components/buttons/UpdateBtn";
+import AddBookBtn from "../components/buttons/AddBookBtn";
+
 
 const BookDetails = () => {
   //-------------------------------------------------------------------------------------------------------------------------------
@@ -51,6 +53,8 @@ const BookDetails = () => {
   // DELETE REQUEST TO MONGODB ON CLICK OF DELETE BUTTON
 
   const deleteHandler = async () => {
+
+    
     const response = await fetch(
       `http://localhost:4000/books/` + bookDetails._id,
       {
@@ -62,9 +66,10 @@ const BookDetails = () => {
     if (response.ok) {
       setBookDetails(json);
       navigate("/books/");
+
     }
     if (!response.ok) {
-      console.log("response not ok");
+      console.log("delete not ok");
     }
   };
 
@@ -90,6 +95,7 @@ const BookDetails = () => {
               </p>
             </div>
             <div className="button-wrapper">
+
               <DeleteBtn
                 deleteHandler={deleteHandler}
                 bookDetails={bookDetails}
@@ -97,6 +103,18 @@ const BookDetails = () => {
               <Link to={`/books/${bookId}/update`} state={bookId}>
                 <EditBtn colorBrightness={colorBrightness} />
               </Link>
+
+          //    <NavLink to={'/books'}>
+        <button onClick={deleteHandler} className="button button--small">
+          Delete
+        </button> </NavLink>
+      
+       <Link to={`/books/${bookId}/update`} state={bookId}>
+          <button className="button button--small">UPDATE</button>
+        </Link>
+              {/* <DeleteBtn onClick={deleteHandler} /> */}
+              {/* <UpdateBtn /> */} //
+
             </div>
           </header>
           <main className="book-details__body">
