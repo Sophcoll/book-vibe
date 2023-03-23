@@ -1,5 +1,5 @@
 // HOOKS
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import chroma from "chroma-js";
 
@@ -54,7 +54,7 @@ const UpdateBook = () => {
       if (response.ok) {
         setBookDetails(json);
         setUserBackgroundColor(json.color);
-        setColorBrightness(json.brightness);
+        setColorBrightness(json.brightness)
       }
     };
 
